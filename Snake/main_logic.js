@@ -15,14 +15,37 @@
 
     }
 
-  
+    function obstaclesArray(w, h) {
+        var arrayOfObstacles = [];
+        for (var i = 0; i < w; i++) {
+            arrayOfObstacles.push(new Point(i, 0))
+            arrayOfObstacles.push(new Point(i, h/10-1))
+        }
 
+        for (var j = 0; j < w; j++) {
+            arrayOfObstacles.push(new Point(0, j))
+            arrayOfObstacles.push(new Point(w/10-1,j))
+        }
+
+        return arrayOfObstacles
+    }
+
+    //Creating the grid
+    
+    var arrayObstacles = obstaclesArray(w, h);
+    var ctxObstacles = canvas.getContext("2d");
+    for (var q = 0; q < arrayObstacles.length; q++) {
+        ctxObstacles.fillStyle = "red";
+        ctxObstacles.fillRect(arrayObstacles[q].x * 10, arrayObstacles[q].y * 10, 10, 10)
+    }
     //Creating the snake
     var arraySnake = []
     snakeLength = 5;
-    for (var i = 0; i < snakeLength; i++) {
-        arraySnake.push({x:i,y:0})
+    for (var i = 2; i < snakeLength+2; i++) {
+        arraySnake.push(new Point(i,3))
     }
+
+    
 
     //Paint the snake on the window
 
@@ -60,6 +83,11 @@
 
     setInterval(function () {    
         var newHead = createNewHead(direction, snakeHead)
+        for (var index in arrayObstacles){
+            if (arrayObstacles[index].x===newHead.x&&arrayObstacles[index].y===newHead.y) {
+                alert("Game over");
+        }
+        }
         arraySnake.push(newHead)        
         snakeHead = arraySnake[arraySnake.length - 1]
         var a = arraySnake.shift();
@@ -81,4 +109,5 @@
         else if (key == "40" && direction != "up") direction = "down";
 
     })
+    
 })
