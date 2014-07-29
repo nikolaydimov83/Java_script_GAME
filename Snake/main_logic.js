@@ -56,7 +56,7 @@
         ctx.fillRect(arraySnake[j].x*10,arraySnake[j].y*10,10,10)
     }
     var snakeHead = arraySnake[arraySnake.length - 1]
-    var intervalTime = 75
+    var intervalTime = 115
     var direction = 'right'
     
 
@@ -92,6 +92,8 @@
     }
 
     var food = createFood()
+    alert(food.x);
+   alert(food.y);
     var ctxFood = canvas.getContext("2d");
     ctxFood.fillStyle = "green";
     ctxFood.fillRect(food.x, food.y, 10, 10)
@@ -121,12 +123,13 @@
 
     setInterval(function () {    
         var newHead = createNewHead(direction, snakeHead)
-        if (newHead.x === food.x && newHead.y === food.y) {
+   
+        if (newHead.x*10 === food.x && newHead.y*10 === food.y) {
             arraySnake.push(newHead);
             snakeHead = newHead;
             food = createFood();
-            document.getElementById('X').innerText = food.x
-            document.getElementById('X').innerText = food.y
+            
+          
             ctxFood.fillStyle = "green";
             ctxFood.fillRect(food.x, food.y, 10, 10)
             for (var j = 0; j < arraySnake.length; j++) {
