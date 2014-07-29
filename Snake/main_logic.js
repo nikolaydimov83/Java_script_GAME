@@ -57,7 +57,45 @@
     }
     var snakeHead = arraySnake[arraySnake.length - 1]
     var intervalTime = 75
-    var direction='right'
+    var direction = 'right'
+    
+
+    function createFood() {
+        var final;
+    do {
+        var positionX = Math.round(Math.random() * w)
+        positionX = positionX - (positionX % 10);
+        var positionY = Math.round(Math.random() * h)
+        positionY = positionY - (positionY % 10);
+        var food = new Point(positionX, positionY);
+        final = food;
+        var checkFood = false
+        for (var i in obstaclesArray) {
+            if (obstaclesArray[i].x === positionX && obstaclesArray[i].y === positionY) {
+                checkFood = true;
+                break
+            }
+
+        }
+
+        for (var j in obstaclesArray) {
+            if (arraySnake[j].x === positionX && arraySnake[j].y === positionY) {
+                checkFood = true;
+                break
+            }
+
+        }
+
+    }
+    while (checkFood === true)
+    return final;
+    }
+
+    var food = createFood()
+    var ctxFood = canvas.getContext("2d");
+    ctxFood.fillStyle = "green";
+    ctxFood.fillRect(food.x, food.y, 10, 10)
+       
     function createNewHead(direction, existingHead) {
         var resultToCreateNewHead;
         switch (direction) {
@@ -83,6 +121,21 @@
 
     setInterval(function () {    
         var newHead = createNewHead(direction, snakeHead)
+        if (newHead.x === food.x && newHead.y === food.y) {
+            arraySnake.push(newHead);
+            snakeHead = newHead;
+            food = createFood();
+            document.getElementById('X').innerText = food.x
+            document.getElementById('X').innerText = food.y
+            ctxFood.fillStyle = "green";
+            ctxFood.fillRect(food.x, food.y, 10, 10)
+            for (var j = 0; j < arraySnake.length; j++) {
+                ctxSnake.fillStyle = "blue";
+                ctxSnake.fillRect(arraySnake[j].x * 10, arraySnake[j].y * 10, 10, 10)
+            }
+            
+        }
+        else {
         for (var index in arrayObstacles){
             if (arrayObstacles[index].x===newHead.x&&arrayObstacles[index].y===newHead.y) {
                 alert("Game over");
@@ -97,7 +150,8 @@
             ctxSnake.fillStyle = "blue";
             ctx.fillRect(arraySnake[j].x * 10, arraySnake[j].y * 10, 10, 10)
         }
-        
+        }
+
     }, intervalTime);
 
     $(document).keydown(function (e) {
