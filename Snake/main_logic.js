@@ -63,22 +63,23 @@
     function createFood() {
         var final;
     do {
-        var positionX = Math.round(Math.random() * w)
+        var positionX = Math.round(Math.random() * (w-10))
         positionX = positionX - (positionX % 10);
-        var positionY = Math.round(Math.random() * h)
+        var positionY = Math.round(Math.random() * (h-10))
         positionY = positionY - (positionY % 10);
         var food = new Point(positionX, positionY);
         final = food;
         var checkFood = false
-        for (var i in obstaclesArray) {
-            if (obstaclesArray[i].x === positionX && obstaclesArray[i].y === positionY) {
+        for (var i in arrayObstacles) {
+            if (arrayObstacles[i].x === positionX && arrayObstacles[i].y === positionY) {
                 checkFood = true;
+                
                 break
             }
 
         }
 
-        for (var j in obstaclesArray) {
+        for (var j in arraySnake) {
             if (arraySnake[j].x === positionX && arraySnake[j].y === positionY) {
                 checkFood = true;
                 break
