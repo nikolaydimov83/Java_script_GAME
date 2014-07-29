@@ -158,6 +158,20 @@
 
     }, intervalTime);
 
+    setInterval(function () {
+        ctx.fillStyle = "red";
+        ctx.fillRect(food.x, food.y, 10, 10)
+        arrayObstacles.push(new Point(food.x/10,food.y/10));
+        
+
+        food = createFood();
+        
+        ctxFood.fillStyle = "green";
+        ctxFood.fillRect(food.x, food.y, 10, 10)
+
+    }, 10000);
+
+
     $(document).keydown(function (e) {
         var key = e.which;
 
