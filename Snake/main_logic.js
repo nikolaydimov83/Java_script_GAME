@@ -40,7 +40,7 @@
     }
     //Creating the snake
     var arraySnake = []
-    snakeLength = 5;
+    snakeLength = 15;
     for (var i = 2; i < snakeLength+2; i++) {
         arraySnake.push(new Point(i,3))
     }
@@ -144,6 +144,14 @@
             if (arrayObstacles[index].x===newHead.x&&arrayObstacles[index].y===newHead.y) {
                 alert("Game over");
         }
+            for (var cell = 1; cell < arraySnake.length; cell++) {
+                    if(cell===index){
+                        continue;
+                    }
+                    if (newHead.x === arraySnake[cell].x && newHead.y === arraySnake[cell].y){
+                        alert("Game over! Too hungry");
+                    }
+                }
         }
         arraySnake.push(newHead)        
         snakeHead = arraySnake[arraySnake.length - 1]
