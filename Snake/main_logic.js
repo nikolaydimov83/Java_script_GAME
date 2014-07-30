@@ -10,6 +10,12 @@ var clear=0;
         var w = $("#canvas").width();
         var h = $("#canvas").height();
 
+
+        var score = $("#score")[0];
+        var ctxScore = score.getContext("2d");
+        var wSc = $("#score").width();
+        var hSc = $("#score").height();
+
         var score = 0;
 
         ctx.fillStyle = "grey";
@@ -17,6 +23,11 @@ var clear=0;
         ctx.strokeStyle = "black";
         ctx.strokeRect(0, 0, w, h);
 
+        ctxScore.fillStyle = "grey";
+        ctxScore.fillRect(0, 0, wSc, hSc);
+        ctxScore.strokeStyle = "black";
+        ctxScore.strokeRect(0, 0, wSc, hSc);
+        
         function Point(x, y) {
             this.x = x;
             this.y = y;
@@ -143,7 +154,8 @@ var clear=0;
                 score++;
                 //paint the score
                 var score_text = "Score: " + score;
-                ctx.fillText(score_text, 20, h - 20);
+                ctxScore.fillStyle = "blue";
+                ctxScore.fillText(score_text, 10, 10);
 
 
                 ctxFood.fillStyle = "green";
