@@ -154,6 +154,9 @@ var clear=0;
                 score++;
                 //paint the score
                 var score_text = "Score: " + score;
+
+                ctxScore.fillStyle = "grey";
+                ctxScore.fillRect(0, 0, wSc, hSc);
                 ctxScore.fillStyle = "blue";
                 ctxScore.fillText(score_text, 15, 10);
 
@@ -176,6 +179,7 @@ var clear=0;
                         clear++
                         if (clear > 0) {
                             clearInterval(main)
+                            clearInterval(foodGen)
 
                         }
                         break
@@ -192,6 +196,7 @@ var clear=0;
                             clear++
                             if (clear > 0) {
                                 clearInterval(main)
+                                clearInterval(foodGen)
 
                             }
                             break
@@ -214,7 +219,7 @@ var clear=0;
 
         }, intervalTime);
        
-        setInterval(function () {
+        var foodGen=setInterval(function () {
             ctx.fillStyle = "red";
             ctx.fillRect(food.x, food.y, 10, 10)
             arrayObstacles.push(new Point(food.x / 10, food.y / 10));
@@ -224,10 +229,7 @@ var clear=0;
 
             ctxFood.fillStyle = "green";
             ctxFood.fillRect(food.x, food.y, 10, 10)
-            if (clear > 0) {
-                clearInterval(main)
-
-            }
+           
 
         }, 10000);
 
