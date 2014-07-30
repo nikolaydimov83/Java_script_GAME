@@ -212,6 +212,10 @@ var clear=0;
 
             ctxFood.fillStyle = "green";
             ctxFood.fillRect(food.x, food.y, 10, 10)
+            if (clear > 0) {
+                clearInterval(main)
+
+            }
 
         }, 10000);
 
