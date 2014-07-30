@@ -155,7 +155,7 @@ var clear=0;
                 //paint the score
                 var score_text = "Score: " + score;
                 ctxScore.fillStyle = "blue";
-                ctxScore.fillText(score_text, 10, 10);
+                ctxScore.fillText(score_text, 15, 10);
 
 
                 ctxFood.fillStyle = "green";
