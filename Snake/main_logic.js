@@ -24,12 +24,12 @@ difficulty = diff;
 
             var score = 0;
 
-            ctx.fillStyle = "grey";
+            ctx.fillStyle = "black";
             ctx.fillRect(0, 0, w, h);
             ctx.strokeStyle = "black";
             ctx.strokeRect(0, 0, w, h);
 
-            ctxScore.fillStyle = "grey";
+            ctxScore.fillStyle = "black";
             ctxScore.fillRect(0, 0, wSc, hSc);
             ctxScore.strokeStyle = "black";
             ctxScore.strokeRect(0, 0, wSc, hSc);
@@ -184,7 +184,7 @@ difficulty = diff;
             var arrayObstacles = obstaclesArray(w, h, difficulty);
             var ctxObstacles = canvas.getContext("2d");
             for (var q = 0; q < arrayObstacles.length; q++) {
-                ctxObstacles.fillStyle = "red";
+                ctxObstacles.fillStyle = "white";
                 ctxObstacles.fillRect(arrayObstacles[q].x * 10, arrayObstacles[q].y * 10, 10, 10)
             }
             //Creating the snake
@@ -283,9 +283,9 @@ difficulty = diff;
                     //paint the score
                     var score_text = "Score: " + score;
 
-                    ctxScore.fillStyle = "grey";
+                    ctxScore.fillStyle = "black";
                     ctxScore.fillRect(0, 0, wSc, hSc);
-                    ctxScore.fillStyle = "blue";
+                    ctxScore.fillStyle = "white";
                     ctxScore.fillText(score_text, 15, 10);
 
 
@@ -337,7 +337,7 @@ difficulty = diff;
                     arraySnake.push(newHead)
                     snakeHead = arraySnake[arraySnake.length - 1]
                     var a = arraySnake.shift();
-                    ctxSnake.fillStyle = "grey";
+                    ctxSnake.fillStyle = "black";
                     ctx.fillRect(a.x * 10, a.y * 10, 10, 10)
                     for (var j = 0; j < arraySnake.length; j++) {
                         ctxSnake.fillStyle = "blue";
@@ -348,7 +348,7 @@ difficulty = diff;
             }, intervalTime);
 
             var foodGen = setInterval(function () {
-                ctx.fillStyle = "red";
+                ctx.fillStyle = "white";
                 ctx.fillRect(food.x, food.y, 10, 10)
                 arrayObstacles.push(new Point(food.x / 10, food.y / 10));
 
