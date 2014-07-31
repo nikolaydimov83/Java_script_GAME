@@ -1,0 +1,38 @@
+﻿body {
+    background-image: url(image1.jpg);
+   
+}
+
+div{
+    font-family:Algerian;
+    font-size:24px;
+    text-align:center;
+    background-color:transparent;
+    height:95px;
+    line-height:120px;
+    
+color:white;
+
+}
+ol{
+    list-style:none;
+    background-color:black;
+    font-family:Algerian;
+    font-size:24px;
+    text-align:center;
+    color:white;
+}
+
+ul li{
+    display:inline-block;
+    color:white;
+    background-color:black;
+    font-family:Algerian;
+    font-size:22px;
+    margin-left:20%;
+}
+a{
+    color:white;
+    text-decoration:none;
+
+}

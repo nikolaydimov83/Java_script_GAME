@@ -1,28 +1,32 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <link href="snake_game.css" rel="stylesheet" />
     <title></title>
 </head>
 <body style="margin:0;padding:0">
-    <div id="left">
-    <canvas id="canvas" width="650" height="450"></canvas>
-    <br />
-    <canvas id="score" width="650" height="50"></canvas>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="obstacles.js"></script> 
-    <script src="main_logic.js"></script>
- </div>
-    <div id="right">
-        <ol>
-            <li>Choose difficulty</li>
-        </ol>
-        <ul>
-            <li><a id="easy" href="snake_game.html" onclick="snake()">Easy</a></li>
-            <li><a id="medium" href="snake_game.html" onclick="snake(this.id)">Medium</a></li>
-            <li><a id="hard" href="snake_game.html" onclick="snake(this.id)">Hard</a></li>
-        </ul>
-        <!-- <script src="choseDifficulty.js"></script> -->
+    <div class="main">
+        <div class="heading">Bite it hard!</div>
+        <div id="left" class="left">
+            <canvas id="canvas" width="650" height="450"></canvas>
+            <br />
+            <canvas id="score" width="650" height="50"></canvas>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+            <script src="obstacles.js"></script>
+            <script src="main_logic.js"></script>
+        </div>
+        <div id="right" class="right">
+            <ol>
+                <li>Choose difficulty</li>
+            </ol>
+            <ul>
+                <li><a id="easy" href="snake_game.html" onclick="snake()">Easy</a></li>
+                <li><a id="medium" href="snake_game.html" onclick="snake(this.id)">Medium</a></li>
+                <li><a id="hard" href="snake_game.html" onclick="snake(this.id)">Hard</a></li>
+            </ul>
+            <!-- <script src="choseDifficulty.js"></script> -->
 
-    </div>  
+        </div>
+    </div> 
 </body>
 </html>

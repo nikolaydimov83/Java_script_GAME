@@ -1,0 +1,49 @@
+﻿body {
+    margin:0 auto;
+    padding:0;
+}
+div.main {
+    margin:0 auto;
+    background-image:url(image1.jpg)
+}
+div.left{
+    margin:10px auto;
+    
+    width:660px;
+}
+div.heading{
+    padding-top:10px;
+    font-family:Algerian;
+    font-size:20px;
+    text-align:center;
+    color:white;
+    background-color:black;
+}
+
+div.right{
+    margin:10px auto;
+}
+
+ol{
+    list-style:none;
+    background-color:transparent;
+    font-family:Algerian;
+    font-size:16px;
+    text-align:center;
+    color:white;
+}
+
+ul li{
+    display:inline-block;
+    color:white;
+    background-color:transparent;
+    font-family:Algerian;
+    font-size:16px;
+    margin-left:20%;
+}
+a{
+    color:white;
+    text-decoration:none;
+
+}
+
